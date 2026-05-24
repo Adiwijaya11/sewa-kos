@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Premium Custom Thin Scrollbar Utility */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* slate-300 */
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #10b981; /* emerald-500 */
+}
+
+/* Premium Hide Scrollbar Utility but allow scrolling */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+/* ── GLOBAL MOBILE RESPONSIVENESS ── */
+
+/* Prevent body horizontal overflow on all screens */
+html, body {
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Tables: Ensure cells don't break layout on small screens */
+.table-auto td, .table-auto th {
+    white-space: nowrap;
+}
+
+/* Touch targets: Minimum 44px tall for all interactive elements on mobile */
+@media (max-width: 640px) {
+    button, a[role="button"], input[type="submit"], input[type="button"] {
+        min-height: 36px;
+    }
+
+    /* Prevent tiny text overflow inside table cells */
+    td, th {
+        max-width: 200px;
+    }
+}
+
+/* Safe area insets for iOS notch devices */
+@supports (padding: max(0px)) {
+    .safe-area-pb {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+    .safe-area-pt {
+        padding-top: max(0px, env(safe-area-inset-top));
+    }
+}
+
+/* Compact padding responsive variant for cards */
+@media (max-width: 480px) {
+    .responsive-card-p {
+        padding: 0.75rem !important;
+    }
+}
+
